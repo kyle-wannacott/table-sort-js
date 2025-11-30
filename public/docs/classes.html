@@ -11,65 +11,21 @@
   <body>
     <script src="./assets/rainbow.js"></script>
     <div class="wrapper">
-      <div class="sidebar">
-        <h2>table-sort-js</h2>
-        <ul style="font-size: 1em">
-          <li>
-            <a href="about.html"><i class="far fa-clipboard fa-fw"></i>About</a>
-          </li>
-          <li>
-            <a href="demo.html"><i class="fas fa-table fa-fw"></i>Demo</a>
-          </li>
-          <li>
-            <a href="classes.html"
-              ><i class="fas fa-chalkboard-teacher"></i>Classes</a
-            >
-          </li>
-          <li>
-            <a href="html5.html"
-              ><i class="fab fa-html5 fa-fw"></i>HTML Example</a
-            >
-          </li>
-          <li>
-            <a href="react.html"
-              ><i class="fab fa-react fa-fw"></i>ReactJS Example</a
-            >
-          </li>
-          <li>
-            <a href="angular.html"
-              ><i class="fab fa-angular fa-fw"></i>Angular Example</a
-            >
-          </li>
-          <li>
-            <a href="vue.html"
-              ><i class="fab fa-vuejs fa-fw"></i>VueJS Example</a
-            >
-          </li>
-          <li>
-            <a href="development.html"
-              ><i class="fas fa-file-code fa-fw"></i>Development</a
-            >
-          </li>
-        </ul>
-        <div class="social_media">
-          <a
-            href="https://github.com/LeeWannacott/table-sort-js"
-            target="_blank"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a href="https://www.npmjs.com/package/table-sort-js" target="_blank"
-            ><i class="fab fa-npm"></i
-          ></a>
-        </div>
-      </div>
+      <div id="sidebar-container"></div>
+      <script src="load-sidebar.js"></script>
       <div class="main_content">
         <div class="header">Classes that can be used with table-sort-js.</div>
         <div class="info">
-          <p>A<a
-            href="https://www.websiteplanet.com/blog/html-guide-beginners/"
-            target="blank">
-            guide</a> on using HTML for those unfamiliar with HTML.</p>
-          <br/>
+          <p>
+            A<a
+              href="https://www.websiteplanet.com/blog/html-guide-beginners/"
+              target="blank"
+            >
+              guide</a
+            >
+            on using HTML for those unfamiliar with HTML.
+          </p>
+          <br />
           <table
             class="table table-sort"
             id="classes-table"
@@ -98,7 +54,8 @@
             <tr>
               <td>remember-sort</td>
               <td>
-                If clicking on different columns remembers sort of the original column.
+                If clicking on different columns remembers sort of the original
+                column.
               </td>
             </tr>
           </table>
@@ -124,47 +81,47 @@
             <tr>
               <td>file-size-sort</td>
               <td>
-                Supports sorting files sizes from bytes to Tebibytes (B -&gt; TiB).
-                Can be Metric prefix (e.g 10KB), or Binary prefix(e.g 25KiB) and
-                can contain a space or no space between number and unit type
-                (e.g 25KB or 25 KB). It converts units into numbers (bytes) does
-                conversion and then outputs to the binary prefix rounded to two
-                decimal places. (e.g 25.00 KiB).
+                Supports sorting files sizes from bytes to Tebibytes (B -&gt;
+                TiB). Can be Metric prefix (e.g 10KB), or Binary prefix(e.g
+                25KiB) and can contain a space or no space between number and
+                unit type (e.g 25KB or 25 KB). It converts units into numbers
+                (bytes) does conversion and then outputs to the binary prefix
+                rounded to two decimal places. (e.g 25.00 KiB).
               </td>
             </tr>
             <tr>
               <td>data-sort</td>
               <td>
-                Sort by data <a
+                Sort by data
+                <a
                   href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes"
-                  target="blank">attributes<a/>, e.g &lt;td
-                    data-sort="42"&gt;&lt;/td&gt; useful when you want to sort
-                    by the values inside of data-sort="" rather than values between
-                    td tags. For example:<br/><br/>  
-                      <li>&lt;td data-sort="1"&gt;table&lt;/td&gt;</li>
-                      <li>&lt;td data-sort="2"&gt;sort&lt;/td&gt; </li>
-                      <li>&lt;td data-sort="3"&gt;js&lt;/td&gt; </li>
-                      <br/>
-                      Will end up sorting in the order 1, 2 ,3 which spells out:
-                      <mark><i>table sort
-                      js</i></mark>. As opposed to sorting what is inside the
-                  &lt;td&gt; tags alphabetically which would spell: <mark
-                    ><i>js sort
-                      table</i></mark>. This is useful for making custom sorts
-                  not supported by table-sort-js.
+                  target="blank"
+                  >attributes</a
+                >, e.g &lt;td data-sort="42"&gt;&lt;/td&gt; useful when you want
+                to sort by the values inside of data-sort="" rather than values
+                between td tags. For example:<br /><br />
+                <span>&lt;td data-sort="1"&gt;table&lt;/td&gt;</span><br />
+                <span>&lt;td data-sort="2"&gt;sort&lt;/td&gt;</span><br />
+                <span>&lt;td data-sort="3"&gt;js&lt;/td&gt;</span>
+                <br /><br />
+                Will end up sorting in the order 1, 2 ,3 which spells out:
+                <mark><i>table sort js</i></mark
+                >. As opposed to sorting what is inside the &lt;td&gt; tags
+                alphabetically which would spell:
+                <mark><i>js sort table</i></mark
+                >. This is useful for making custom sorts not supported by
+                table-sort-js.
               </td>
             </tr>
             <tr>
               <td>disable-sort</td>
-              <td>
-                Disallow sorting the table by this specific column.
-              </td>
+              <td>Disallow sorting the table by this specific column.</td>
             </tr>
           </table>
-        <br>
-        <h3>Example using tags:</h3>
+          <br />
+          <h3>Example using tags:</h3>
 
-        <pre>
+          <pre>
         <code style="font-size:1.3em" data-language="html">
 &lt;script src="table-sort.js"&gt;&lt;/script&gt;
 &lt;table class="table-sort table-arrows"&gt;
@@ -199,36 +156,36 @@
 &lt;/table&gt;
         </code>
         </pre>
-<table class="table-sort table-arrows" id="classes-table">
-  <thead>
-    <tr>
-      <th class="data-sort">data</th>
-      <th class="file-size-sort">file sizes</th>
-      <th class="order-by-desc">birth date</th>
-      <th class="disable-sort">unsortable</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td data-sort="2">sort</td>
-      <td>10KiB</td>
-      <td>1706/1/17</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td data-sort="3">js</td>
-      <td>1 MB</td>
-      <td>1835/11/25</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td data-sort="1">table</td>
-      <td>1TB</td>
-      <td>1835/11/30</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
+          <table class="table-sort table-arrows" id="classes-table">
+            <thead>
+              <tr>
+                <th class="data-sort">data</th>
+                <th class="file-size-sort">file sizes</th>
+                <th class="order-by-desc">birth date</th>
+                <th class="disable-sort">unsortable</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-sort="2">sort</td>
+                <td>10KiB</td>
+                <td>1706/1/17</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td data-sort="3">js</td>
+                <td>1 MB</td>
+                <td>1835/11/25</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td data-sort="1">table</td>
+                <td>1TB</td>
+                <td>1835/11/30</td>
+                <td>3</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 /*
 table-sort-js
-Author: Lee Wannacott
-Licence: MIT License Copyright (c) 2021-2024 Lee Wannacott
+Author: Kyle Wannacott
+Licence: MIT License Copyright (c) 2021-2024 Kyle Wannacott
 
-GitHub Repository: https://github.com/LeeWannacott/table-sort-js
+GitHub Repository: https://github.com/kyle-wannacott/table-sort-js
 
 Instructions:
 	Load as script:

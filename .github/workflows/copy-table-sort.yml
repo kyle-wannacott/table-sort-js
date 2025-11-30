@@ -1,0 +1,29 @@
+# This workflow copies table-sort.js from src to public and npm folders when shipping
+name: Copy table-sort.js
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "src/table-sort.js"
+
+jobs:
+  copy-table-sort:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Copy table-sort.js to distribution folders
+        run: |
+          cp src/table-sort.js public/table-sort.js
+          cp src/table-sort.js npm/table-sort.js
+          cp src/table-sort.js browser-extensions/firefox/table-sort.js
+          cp src/table-sort.js browser-extensions/chrome/table-sort.js
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add public/table-sort.js npm/table-sort.js browser-extensions/*/table-sort.js
+          git diff --staged --quiet || git commit -m "Copy table-sort.js to distribution folders"
+          git push

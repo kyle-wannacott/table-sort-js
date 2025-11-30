@@ -8,57 +8,8 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="sidebar">
-        <h2>table-sort-js</h2>
-        <ul style="font-size: 1em">
-          <li>
-            <a href="about.html"><i class="far fa-clipboard fa-fw"></i>About</a>
-          </li>
-          <li>
-            <a href="demo.html"><i class="fas fa-table fa-fw"></i>Demo</a>
-          </li>
-          <li>
-            <a href="classes.html"
-              ><i class="fas fa-chalkboard-teacher"></i>Classes</a
-            >
-          </li>
-          <li>
-            <a href="html5.html"
-              ><i class="fab fa-html5 fa-fw"></i>HTML Example</a
-            >
-          </li>
-          <li>
-            <a href="react.html"
-              ><i class="fab fa-react fa-fw"></i>ReactJS Example</a
-            >
-          </li>
-          <li>
-            <a href="angular.html"
-              ><i class="fab fa-angular fa-fw"></i>Angular Example</a
-            >
-          </li>
-          <li>
-            <a href="vue.html"
-              ><i class="fab fa-vuejs fa-fw"></i>VueJS Example</a
-            >
-          </li>
-          <li>
-            <a href="development.html"
-              ><i class="fas fa-file-code fa-fw"></i>Development</a
-            >
-          </li>
-        </ul>
-        <div class="social_media">
-          <a
-            href="https://github.com/LeeWannacott/table-sort-js"
-            target="_blank"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a href="https://www.npmjs.com/package/table-sort-js" target="_blank"
-            ><i class="fab fa-npm"></i
-          ></a>
-        </div>
-      </div>
+      <div id="sidebar-container"></div>
+      <script src="load-sidebar.js"></script>
       <div class="main_content">
         <div class="header">Help contribute to table-sort-js!</div>
         <div class="info">
@@ -67,13 +18,13 @@
           <ul>
             <li class="bullet-point">
               Development on table-sort-js happens at
-              <a href="https://github.com/LeeWannacott/table-sort-js"
+              <a href="https://github.com/kyle-wannacott/table-sort-js"
                 >GitHub.</a
               >
             </li>
             <li class="bullet-point">
               If you want to contribute have a look at the
-              <a href="https://github.com/LeeWannacott/table-sort-js/issues"
+              <a href="https://github.com/kyle-wannacott/table-sort-js/issues"
                 >issues</a
               >, or open an issue.
             </li>
@@ -81,7 +32,7 @@
               If you have ideas on how to improve table-sort-js ,or questions
               you can post in
               <a
-                href="https://github.com/LeeWannacott/table-sort-js/discussions"
+                href="https://github.com/kyle-wannacott/table-sort-js/discussions"
                 >discussions.</a
               >
             </li>
@@ -101,9 +52,9 @@
               Run table-sort-js with the command: <b>npm run start</b>
             </li>
             <li class="bullet-point">
-              note: table-sort-js currently uses node version 16; I would
+              note: table-sort-js uses Node.js version 18 or later. I would
               recommend using node version manager (nvm) and running the command
-              <b>nvm 16</b> to select node version 16.
+              <b>nvm use 16</b> o select a compatible version.
             </li>
             <li class="bullet-point">
               Testing table-sort-js: <b>npm run test</b> (currently uses Jest
@@ -112,13 +63,8 @@
             </li>
             <li class="bullet-point">
               Development on table-sort-js is currently in
-              <b>public/table-sort.js</b>
-              and uses <b>public/index.html</b> to test on; this will change
-              once issue
-              <a href="https://github.com/LeeWannacott/table-sort-js/issues/30"
-                >issue#30</a
-              >
-              is completed.
+              <b>src/table-sort.js</b>
+              and uses <b>public/index.html</b> to test on.
             </li>
             <li class="bullet-point">
               Alternatively, you can do manual testing by using an HTML file and

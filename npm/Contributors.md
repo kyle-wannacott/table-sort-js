@@ -1,4 +1,4 @@
-Repository link: https://github.com/LeeWannacott/table-sort-js
+Repository link: https://github.com/kyle-wannacott/table-sort-js
 
 I made table-sort-js for my own use case when I needed to sort a table.
 
@@ -14,7 +14,7 @@ You are welcome to open issues or make pull requests.
 This project is a react app which can be run by npm install and then npm start.
 
 Pull requests can be made on the file table-sort-js/public/table-sort.js
-This file is published to https://leewannacott.github.io/table-sort-js/table-sort.js
+This file is published to https://kyle-wannacott.github.io/table-sort-js/table-sort.js
 
 You can modify testTable.js in table-sort-js/src/testTable.js for the feature or
 bug request you are testing. You can go to http://localhost:3000/ if you have used npm start.

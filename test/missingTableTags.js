@@ -1,7 +1,7 @@
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 require("iconv-lite").encodingExists("foo");
-const tableSortJs = require("../public/table-sort");
+const tableSortJs = require("../src/table-sort");
 
 function createTestTableNoMissingTags(testTableData, classTags = "") {
   let getClassTagsForTH = [];

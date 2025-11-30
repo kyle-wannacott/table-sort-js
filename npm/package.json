@@ -1,6 +1,6 @@
 {
   "name": "table-sort-js",
-  "version": "1.22.2",
+  "version": "1.22.3",
   "description": "A JavaScript client-side HTML table sorting library with no dependencies required.",
   "license": "MIT",
   "repository": "kyle-wannacott/table-sort-js",

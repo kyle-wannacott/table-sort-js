@@ -1,12 +1,21 @@
 {
   "manifest_version": 3,
-  "author": "Lee Wannacott",
+  "author": "Kyle Wannacott",
   "name": "table-sort-js",
-  "version": "1.21.0",
-  "description": "Makes tables sortable using table-sort-js: https://github.com/LeeWannacott/table-sort-js",
-  "icons": { "48": "icons/t.png" },
+  "version": "1.22.3",
+  "description": "Make websites (html) tables sortables when clicking on table  columns.",
+  "icons": {
+    "32": "icons/table-sort-32.png",
+    "48": "icons/table-sort-icon-48.png",
+    "64": "icons/table-sort-icon-64.png",
+    "128": "icons/table-sort-icon-128.png"
+  },
   "browser_action": {
-    "default_icon": "./icons/t.png",
+    "default_icon": {
+      "32": "icons/table-sort-32.png",
+      "48": "icons/table-sort-icon-48.png",
+      "64": "icons/table-sort-icon-64.png"
+    },
     "default_title": "table-sort-js"
   },
   "content_scripts": [

@@ -6,7 +6,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 ![build status](https://img.shields.io/github/actions/workflow/status/kyle-wannacott/table-sort-js/jest.yml?branch=master)
 
-# TABLE-SORT-JS.
+# ![table-sort-icon](icons/table-sort-icon-48.png) TABLE-SORT-JS.
 
 - Description: HTML table sorting library with sort type inference builtin and browser extension available. [#VanillaJS](http://vanilla-js.com/)
 
