@@ -122,15 +122,15 @@ function tableSortJs(testingTableSortJS = false, domDocumentWindow = document) {
       rows: [],
       headers: [],
     };
+    if (table.bodies.item(0) == null) {
+      return;
+    }
     for (let index of table.theads.keys()) {
       table.headers.push(
         table.theads.item(index).querySelectorAll("* > th , * > td")
       );
     }
     for (let index of table.bodies.keys()) {
-      if (table.bodies.item(index) == null) {
-        return;
-      }
       table.rows.push(table.bodies.item(index).querySelectorAll("tr"));
     }
     table.hasClass = {
@@ -141,6 +141,21 @@ function tableSortJs(testingTableSortJS = false, domDocumentWindow = document) {
         item.includes("table-arrows")
       ),
     };
+
+    let div = document.createElement("div");
+    let input = document.createElement("input");
+    let label = document.createElement("label");
+    div.style.display = "flex";
+    label.innerHTML = "Search:";
+    input.setAttribute("type", "text");
+    input.setAttribute("id", "fuzzy-search");
+    input.tableRows = table.rows;
+    input.table = table;
+    input.addEventListener("input", sortFuzzySearch);
+    div.appendChild(label);
+    div.appendChild(input);
+    sortableTable.insertBefore(div, sortableTable.firstChild);
+
     for (
       let headerIndex = 0;
       headerIndex < table.theads.length;
@@ -184,6 +199,53 @@ function tableSortJs(testingTableSortJS = false, domDocumentWindow = document) {
     }
   }
 
+  function sortFuzzySearch(e) {
+    for (
+      let bodyIndex = 0;
+      bodyIndex < e.target.tableRows.length;
+      bodyIndex++
+    ) {
+      const columnToBeSorted = [];
+      for (let [i, tr] of e.target.tableRows[bodyIndex].entries()) {
+        const charMatchesInRow = [];
+        const tds = tr.querySelectorAll("td");
+        const tdLengths = [];
+        for (let td of tds) {
+          let amountOfCharsInTd = 0;
+          for (let character of Array.from(e.target.value)) {
+            if (td.innerText.includes(character)) {
+              amountOfCharsInTd += 1;
+            }
+          }
+          charMatchesInRow.push(amountOfCharsInTd);
+          tdLengths.push(td.innerText.length);
+        }
+        let tdWithMaxCharMatch = Math.max(...charMatchesInRow);
+        let index = charMatchesInRow.indexOf(tdWithMaxCharMatch);
+
+        if (!isNaN(tdWithMaxCharMatch / tdLengths[index])) {
+          columnToBeSorted.push(
+            `${tdWithMaxCharMatch / tdLengths[index]}#${i}`
+          );
+          columnIndexAndTableRow[
+            `${tdWithMaxCharMatch / tdLengths[index]}#${i}`
+          ] = cellsOrRows(e.target.table, tr);
+        } else {
+          columnToBeSorted.push(`0#${i}`);
+          columnIndexAndTableRow[`0#${i}`] = cellsOrRows(e.target.table, tr);
+        }
+      }
+      columnToBeSorted.sort().reverse();
+      for (let [i, tr] of e.target.tableRows[bodyIndex].entries()) {
+        if (e.target.table.hasClass.cellsSort) {
+          tr.innerHTML = columnIndexAndTableRow[columnToBeSorted[i]];
+        } else {
+          tr.outerHTML = columnIndexAndTableRow[columnToBeSorted[i]];
+        }
+      }
+    }
+  }
+
   function sortFileSize(table, column, columnIndex) {
     let unitToMultiplier = {
       b: 1,
@@ -213,7 +275,6 @@ function tableSortJs(testingTableSortJS = false, domDocumentWindow = document) {
   }
 
   function sortDates(datesFormat, table, column) {
-    try {
       for (let [i, tr] of table.visibleRows.entries()) {
         let columnOfTd, datesRegex;
         if (datesFormat === "mdy" || datesFormat === "dmy") {
@@ -249,13 +310,9 @@ function tableSortJs(testingTableSortJS = false, domDocumentWindow = document) {
         column.toBeSorted.push(`${numberToSort}#${i}`);
         columnIndexAndTableRow[column.toBeSorted[i]] = cellsOrRows(table, tr);
       }
-    } catch (e) {
-      console.log(e);
-    }
   }
 
   function sortByRuntime(table, column) {
-    try {
       for (let [i, tr] of table.visibleRows.entries()) {
         const regexMinutesAndSeconds = /^(\d+h)?\s?(\d+m)?\s?(\d+s)?$/i;
         let columnOfTd = "";
@@ -285,9 +342,6 @@ function tableSortJs(testingTableSortJS = false, domDocumentWindow = document) {
         column.toBeSorted.push(`${timeinSeconds}#${i}`);
         columnIndexAndTableRow[column.toBeSorted[i]] = cellsOrRows(table, tr);
       }
-    } catch (e) {
-      console.log(e);
-    }
   }
 
   function getTableData(tableProperties, timesClickedColumn) {
